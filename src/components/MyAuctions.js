@@ -3,22 +3,24 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { getMyAuctions } from "../actions/myAuctions";
+import Counter from "./Counter";
 
 const MyAuctions = (props) => {
-   var getMyAuctions = props.getMyAuctions;
+  var getMyAuctions = props.getMyAuctions;
 
-    useEffect(() => {
-        getMyAuctions();
-    }, [getMyAuctions]);
+  useEffect(() => {
+    getMyAuctions();
+  }, [getMyAuctions]);
 
-    const auctionCards =
+  const auctionCards =
     props.auctions.length > 0
-        ? props.auctions.map((a) => (
-            <p key={a.id}>
+      ? props.auctions.map((a) => (
+          <p key={a.id}>
             <Link to={`/auctions/${a.id}`}>{a.attributes.title}</Link>
-            </p>
+            <Counter></Counter>
+          </p>
         ))
-        : null;
+      : null;
 
   return auctionCards;
 };
