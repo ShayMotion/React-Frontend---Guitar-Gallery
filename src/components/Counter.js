@@ -1,25 +1,20 @@
-import { render } from "@testing-library/react";
 import React from "react";
-import MyAuctions from "./MyAuctions.js";
+import { connect } from "react-redux";
+import { increment } from "../actions/counter";
 
 class Counter extends React.Component {
-  state = { count: 0 };
-
-  increment = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
-
   render() {
     return (
       <div>
-        <button className="inc" onClick={this.increment}>
-          Like: {this.state.count}
+        <button
+          className="inc"
+          onClick={() => this.props.increment(this.props.auctionId)}
+        >
+          Like: {this.props.auctionLikes}
         </button>
       </div>
     );
   }
 }
 
-export default Counter;
+export default connect(mapStateToProps, { increment })(Counter);

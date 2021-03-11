@@ -17,7 +17,7 @@ const MyAuctions = (props) => {
       ? props.auctions.map((a) => (
           <p key={a.id}>
             <Link to={`/auctions/${a.id}`}>{a.attributes.title}</Link>
-            <Counter></Counter>
+            <Counter auctionId={a.id} auctionLikes={a.attributes.likes} />
           </p>
         ))
       : null;
