@@ -17,4 +17,4 @@ class Counter extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, { increment })(Counter);
+export default connect(null, { increment })(Counter);
