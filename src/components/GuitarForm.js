@@ -29,7 +29,7 @@ const GuitarForm = ({
         placeholder="brand"
         name="brand"
         onChange={handleChange}
-        value-={brand}
+        value={brand}
       />
       <br />
       <input
