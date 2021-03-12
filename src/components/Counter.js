@@ -11,12 +11,27 @@ class Counter extends React.Component {
     });
   };
 
+  decrement = () => {
+    // i want to reduce the count if this.state.count > 0
+    if (this.state.count > 0) {
+      this.setState({
+        count: this.state.count - 1,
+      });
+    }
+  };
+
   render() {
     return (
       <div>
         <button className="inc" onClick={this.increment}>
-          Like: {this.state.count}
+          Like
         </button>
+        <div style={{ color: "white" }}>{this.state.count}</div>
+        <div>
+          <button className="dec" onClick={this.decrement}>
+            Dislike
+          </button>
+        </div>
       </div>
     );
   }
