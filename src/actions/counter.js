@@ -4,8 +4,6 @@ export function increment(auctionId) {
   return (dispatch) => {
     console.log("adding like to auction with id: " + auctionId);
     return fetch(`http://localhost:3002/api/v1/auctions/${auctionId}/like`, {
-      credentials: "include",
-      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },

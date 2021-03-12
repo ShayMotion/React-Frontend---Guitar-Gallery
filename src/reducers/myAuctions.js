@@ -3,6 +3,7 @@ const initialState = [];
 export default (state = initialState, action) => {
   switch (action.type) {
     case "SET_MY_AUCTIONS":
+      // let sortedAuctions = actions.auctions.sort();
       return action.auctions;
     case "ADD_AUCTION":
       return state.concat(action.auction);

@@ -12,13 +12,33 @@ const MyAuctions = (props) => {
     getMyAuctions();
   }, [getMyAuctions]);
 
+  let displayedAuctions;
+
+  let moreThan10Likes = props.auctions.filter(
+    (auction) => auction.attributes.likes > 10
+  );
+  props.auctions.forEach(function (auction) {
+    console.log(auction.attributes.title);
+  });
+
+  props.auctions.sort(function (auction1, auction2) {
+    if (auction1.attributes.likes > auction2.attributes.likes) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  console.log(props.auctions);
+
+  displayedAuctions = props.auctions;
+
   const auctionCards =
-    props.auctions.length > 0
-      ? props.auctions.map((a) => (
-          <p key={a.id}>
+    displayedAuctions.length > 0
+      ? displayedAuctions.map((a) => (
+          <div key={a.id}>
             <Link to={`/auctions/${a.id}`}>{a.attributes.title}</Link>
             <Counter auctionId={a.id} auctionLikes={a.attributes.likes} />
-          </p>
+          </div>
         ))
       : null;
 
